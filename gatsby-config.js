@@ -15,6 +15,23 @@ module.exports = {
     },
 
     plugins: [
-    `gatsby-plugin-styled-components`
-  ],
+      `gatsby-transformer-sharp`,
+      `gatsby-plugin-sharp`,
+      `gatsby-plugin-styled-components`,
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `images`,
+          path: `${__dirname}/src/images/`,
+        },
+      },
+      {
+        resolve: `gatsby-source-contentful`,
+        options: {
+        spaceId: `fw6pl8z83eje`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: `g-eFeTXT7TP0YFqMMucPQCtICsekTXrUJ6_NpUMZQDI`,
+      },
+    },
+  ]
 }
